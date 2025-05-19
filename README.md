@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Конвертер тексту в PDF
 
-## Getting Started
+Простий застосунок на React (Next.js), який дозволяє користувачам конвертувати введений текст у PDF-документ.
 
-First, run the development server:
+🚀 Технологічний стек
 
-```bash
+React (Next.js 15) — App Router
+
+TypeScript — типізація
+
+Tailwind CSS — стилізація
+
+Axios — для запитів до API
+
+@react-pdf-viewer/core — для відображення PDF
+
+Jest + React Testing Library — для юніт-тестів
+
+🌐 Змінні оточення
+Створи файл .env у корені проєкту:
+
+DOMAIN=https://api.example.com
+API_KEY=your-api-key
+
+⚠️ Файл .env не додається до репозиторію.
+
+🧪 Запуск проєкту
+
+Встановлення залежностей:
+
+npm install
+
+Запуск локального сервера:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Запуск тестів:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm run test
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📌 Основні модулі
 
-## Learn More
+🔄 convertTextToPDF
 
-To learn more about Next.js, take a look at the following resources:
+Надсилає POST-запит на ${DOMAIN}/create-pdf?apiKey=${API_KEY}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Очікує відповідь у форматі Blob (PDF)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📦 ConverterModule
 
-## Deploy on Vercel
+Основна логіка застосунку:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Введення тексту у TextInput
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Конвертація введеного тексту у Pdf та відображення у PdfViewer
+
+Ведображення історії через HistoryWidget
+
+PDF зберігається у localStorage у форматі base64
+
+📄 PdfViewer
+
+Відображає PDF-файл з base64, конвертований у Blob
+
+Працює з @react-pdf-viewer/core
+
+🕘 HistoryWidget
+
+Показує список попередніх PDF-файлів, які можна переглядати
+
+✅ Покриття тестами
+
+convert.test.tsx
+
+Мокує convertTextToPDF
+
+Симулює введення тексту та клік
+
+Перевіряє, що API викликане з правильним аргументом
+
+Переконується, що PDF зʼявляється на екрані
+
+📬 Зворотній звʼязок
+
+Pull requests і пропозиції — вітаються!
+
+© 2025, Тестове завдання Universe Group
